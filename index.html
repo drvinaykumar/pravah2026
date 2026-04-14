@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PRAVAH 2026 — Conversations in Liberal Arts &amp; Sciences Leadership</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
+<style>
+  /* ── Reset & Base ──────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --crimson:   #c0392b;
+    --crimson-d: #96281b;
+    --ink:       #1a1008;
+    --ink-soft:  #3d3328;
+    --parchment: #fdf8f0;
+    --warm-mid:  #f0e8d8;
+    --rule:      #d4c4a8;
+    --gold:      #b8860b;
+    --sidebar-w: 220px;
+  }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: 'EB Garamond', Georgia, serif;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* ── Cover ─────────────────────────────────────────────────── */
+  #cover {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #0b0b0f;
+  }
+
+  /* Animated gradient background */
+  #cover .cover-bg-design {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 20%, rgba(192,57,43,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 80%, rgba(39,110,241,0.14) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 40% at 75% 15%, rgba(39,174,96,0.10) 0%, transparent 50%),
+      radial-gradient(ellipse 40% 35% at 15% 75%, rgba(243,156,18,0.10) 0%, transparent 50%);
+    animation: bgShift 12s ease-in-out infinite alternate;
+  }
+
+  @keyframes bgShift {
+    0%   { opacity: 0.8; }
+    100% { opacity: 1; }
+  }
+
+  /* Subtle grid lines */
+  #cover .cover-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Top color bar */
+  #cover .cover-colorbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #c0392b, #e67e22, #f1c40f, #27ae60, #2980b9, #8e44ad);
+  }
+
+  /* SVG network decoration */
+  #cover .cover-network {
+    position: absolute;
+    right: -60px;
+    bottom: -60px;
+    width: 420px;
+    height: 420px;
+    opacity: 0.07;
+  }
+
+  #cover .cover-network-left {
+    position: absolute;
+    left: -80px;
+    top: 60px;
+    width: 300px;
+    height: 300px;
+    opacity: 0.05;
+    transform: rotate(15deg);
+  }
+
+  /* Horizontal rule lines */
+  #cover .cover-rule-top,
+  #cover .cover-rule-bottom {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+  }
+  #cover .cover-rule-top { top: 18%; }
+  #cover .cover-rule-bottom { bottom: 18%; }
+
+  /* Main content */
+  #cover .cover-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem 2.5rem;
+    max-width: 680px;
+    animation: fadeUp 1.2s ease both;
+  }
+
+  #cover .cover-pravah-logo {
+    height: clamp(60px, 10vw, 90px);
+    width: auto;
+    margin-bottom: 2.8rem;
+    filter: drop-shadow(0 4px 24px rgba(192,57,43,0.4));
+    animation: fadeUp 1s 0.2s both;
+  }
+
+  #cover .cover-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.6rem auto;
+  }
+
+  #cover .cover-divider::before,
+  #cover .cover-divider::after {
+    content: '';
+    flex: 1;
+    max-width: 80px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.3));
+  }
+  #cover .cover-divider::after {
+    background: linear-gradient(to left, transparent, rgba(255,255,255,0.3));
+  }
+
+  #cover .cover-diamond {
+    width: 6px;
+    height: 6px;
+    background: var(--crimson);
+    transform: rotate(45deg);
+  }
+
+  #cover .cover-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2.8vw, 1.55rem);
+    font-style: italic;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.03em;
+    line-height: 1.5;
+    margin-bottom: 0.4rem;
+  }
+
+  #cover .cover-event-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.3rem;
+  }
+
+  #cover .cover-event-title span { color: #e8a87c; }
+
+  #cover .cover-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin: 1.8rem 0 2.4rem;
+  }
+
+  #cover .pill {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 0.3rem 0.9rem;
+    border-radius: 2px;
+  }
+
+  #cover .cover-tslas-logo {
+    height: clamp(28px, 4vw, 36px);
+    width: auto;
+    opacity: 0.85;
+    margin-top: 0.5rem;
+    animation: fadeIn 1.2s 0.6s both;
+  }
+
+  #cover .cover-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.25em;
+    color: rgba(255,255,255,0.35);
+    margin-top: 1rem;
+    text-transform: uppercase;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: rgba(255,255,255,0.3);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    animation: fadeIn 2s 1.8s both;
+  }
+
+  .scroll-hint .arrow {
+    width: 1px;
+    height: 38px;
+    background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.3));
+    animation: arrowPulse 2s ease infinite;
+  }
+
+  /* ── Layout ─────────────────────────────────────────────────── */
+  .main-layout {
+    display: flex;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    gap: 3rem;
+  }
+
+  /* ── Sidebar Nav ─────────────────────────────────────────────── */
+  .sidebar {
+    width: var(--sidebar-w);
+    flex-shrink: 0;
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
+    padding: 2rem 0;
+    align-self: flex-start;
+    display: none;
+  }
+
+  @media (min-width: 900px) { .sidebar { display: block; } }
+
+  .sidebar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--crimson);
+    margin-bottom: 0.3rem;
+  }
+
+  .sidebar-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #a09080;
+    margin-bottom: 2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .sidebar nav a {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6e5e4e;
+    text-decoration: none;
+    padding: 0.45rem 0;
+    border-left: 2px solid transparent;
+    padding-left: 0.8rem;
+    transition: all 0.2s;
+    line-height: 1.3;
+  }
+
+  .sidebar nav a:hover,
+  .sidebar nav a.active {
+    color: var(--crimson);
+    border-left-color: var(--crimson);
+  }
+
+  .sidebar nav .nav-chapter { font-weight: 600; }
+
+  /* ── Content ─────────────────────────────────────────────────── */
+  .content {
+    flex: 1;
+    min-width: 0;
+    padding-top: 3rem;
+    padding-bottom: 6rem;
+  }
+
+  /* ── Sections ─────────────────────────────────────────────────── */
+  .section {
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid var(--rule);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .section.visible { opacity: 1; transform: translateY(0); }
+  .section:last-child { border-bottom: none; }
+
+  /* ── Chapter header ──────────────────────────────────────────── */
+  .chapter-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .chapter-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--crimson);
+  }
+
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .section h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    font-weight: 400;
+    color: #7a6a5a;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* ── Prose ───────────────────────────────────────────────────── */
+  .prose p {
+    font-size: 1.08rem;
+    line-height: 1.85;
+    margin-bottom: 1.3em;
+    color: var(--ink-soft);
+  }
+
+  .prose p:first-child::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.6em;
+    font-weight: 800;
+    float: left;
+    line-height: 0.82;
+    margin-right: 0.1em;
+    margin-top: 0.08em;
+    color: var(--crimson);
+  }
+
+  .prose em { font-style: italic; }
+  .prose strong { font-weight: 600; color: var(--ink); }
+
+  /* ── Blockquote ──────────────────────────────────────────────── */
+  blockquote {
+    margin: 2.5rem 0;
+    padding: 1.6rem 2rem;
+    border-left: 3px solid var(--crimson);
+    background: var(--warm-mid);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--ink);
+    line-height: 1.6;
+    position: relative;
+  }
+
+  blockquote::before {
+    content: '\201C';
+    font-size: 4rem;
+    color: var(--crimson);
+    opacity: 0.25;
+    position: absolute;
+    top: -0.5rem;
+    left: 0.8rem;
+    line-height: 1;
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* ── Themes grid ─────────────────────────────────────────────── */
+  .themes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .theme-card {
+    background: var(--warm-mid);
+    border: 1px solid var(--rule);
+    padding: 1.6rem;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .theme-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  .theme-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--crimson);
+    opacity: 0.18;
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+    line-height: 1;
+  }
+
+  .theme-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    color: var(--ink);
+    padding-right: 2rem;
+  }
+
+  .theme-card p {
+    font-size: 0.88rem;
+    color: #6a5a4a;
+    line-height: 1.6;
+  }
+
+  /* ── Contributors ─────────────────────────────────────────────── */
+  .contributors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.4rem;
+    margin-top: 1.5rem;
+  }
+
+  .contributor-item {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    padding: 0.5rem 0.8rem;
+    border-left: 2px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .contributor-item:hover {
+    border-left-color: var(--crimson);
+    background: var(--warm-mid);
+  }
+
+  .contributor-item .name { font-weight: 500; }
+  .contributor-item .org {
+    display: block;
+    font-size: 0.8rem;
+    color: #9a8a7a;
+    font-style: italic;
+  }
+
+  /* ── Acknowledgement list ─────────────────────────────────────── */
+  .ack-list {
+    list-style: none;
+    margin-top: 1.5rem;
+  }
+
+  .ack-list li {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    padding: 0.6rem 0 0.6rem 1.2rem;
+    border-bottom: 1px solid var(--warm-mid);
+    position: relative;
+  }
+
+  .ack-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 5px;
+    background: var(--crimson);
+    border-radius: 50%;
+  }
+
+  /* ── Keynote cards ─────────────────────────────────────────────── */
+  .keynote-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0 2rem;
+  }
+
+  .keynote-card {
+    background: var(--warm-mid);
+    border-top: 3px solid var(--crimson);
+    padding: 1.5rem;
+  }
+
+  .keynote-card .kname {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+
+  .keynote-card .krole {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--crimson);
+    margin-bottom: 0.8rem;
+  }
+
+  .keynote-card p {
+    font-size: 0.92rem;
+    color: #6a5a4a;
+    line-height: 1.65;
+  }
+
+  /* ── Section title special ───────────────────────────────────── */
+  .section-intro h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  }
+
+  /* ── Footer ──────────────────────────────────────────────────── */
+  footer {
+    background: var(--ink);
+    color: #c8b89a;
+    text-align: center;
+    padding: 3rem 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    line-height: 2;
+  }
+
+  footer a { color: var(--crimson); text-decoration: none; }
+  footer .footer-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  footer .footer-copy {
+    margin-top: 1.5rem;
+    font-size: 0.78rem;
+    color: #7a6a5a;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ── Mobile nav ──────────────────────────────────────────────── */
+  .mobile-nav {
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(253,248,240,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.7rem 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  @media (min-width: 900px) { .mobile-nav { display: none; } }
+
+  .mobile-nav .brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--crimson);
+  }
+
+  #menu-toggle {
+    background: none;
+    border: 1px solid var(--rule);
+    padding: 0.35rem 0.7rem;
+    cursor: pointer;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .mobile-drawer {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(13,9,5,0.6);
+    z-index: 200;
+  }
+
+  .mobile-drawer.open { display: block; }
+
+  .drawer-inner {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 280px;
+    background: var(--parchment);
+    padding: 2rem 1.5rem;
+    overflow-y: auto;
+  }
+
+  .drawer-inner .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    display: block;
+    margin-left: auto;
+  }
+
+  .drawer-inner nav a {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* ── Animations ──────────────────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes arrowPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50%       { opacity: 1;   transform: scaleY(1.15); }
+  }
+
+  /* ── Responsive ──────────────────────────────────────────────── */
+  @media (max-width: 600px) {
+    .prose p:first-child::first-letter { font-size: 2.8em; }
+    .themes-grid { grid-template-columns: 1fr; }
+    .contributors-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ COVER ═══════════════ -->
+<section id="cover">
+  <!-- Design layers -->
+  <div class="cover-bg-design"></div>
+  <div class="cover-grid"></div>
+  <div class="cover-colorbar"></div>
+  <div class="cover-rule-top"></div>
+  <div class="cover-rule-bottom"></div>
+
+  <!-- Network SVG decorations -->
+  <svg class="cover-network" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="200" cy="80"  r="6" fill="#c0392b"/>
+    <circle cx="320" cy="140" r="5" fill="#e67e22"/>
+    <circle cx="340" cy="260" r="6" fill="#f1c40f"/>
+    <circle cx="240" cy="340" r="5" fill="#27ae60"/>
+    <circle cx="120" cy="320" r="6" fill="#2980b9"/>
+    <circle cx="60"  cy="200" r="5" fill="#8e44ad"/>
+    <circle cx="100" cy="100" r="4" fill="#e74c3c"/>
+    <circle cx="280" cy="200" r="4" fill="#1abc9c"/>
+    <circle cx="160" cy="200" r="3" fill="#ecf0f1"/>
+    <line x1="200" y1="80"  x2="320" y2="140" stroke="white" stroke-width="1"/>
+    <line x1="320" y1="140" x2="340" y2="260" stroke="white" stroke-width="1"/>
+    <line x1="340" y1="260" x2="240" y2="340" stroke="white" stroke-width="1"/>
+    <line x1="240" y1="340" x2="120" y2="320" stroke="white" stroke-width="1"/>
+    <line x1="120" y1="320" x2="60"  y2="200" stroke="white" stroke-width="1"/>
+    <line x1="60"  y1="200" x2="100" y2="100" stroke="white" stroke-width="1"/>
+    <line x1="100" y1="100" x2="200" y2="80"  stroke="white" stroke-width="1"/>
+    <line x1="200" y1="80"  x2="280" y2="200" stroke="white" stroke-width="0.8"/>
+    <line x1="280" y1="200" x2="320" y2="140" stroke="white" stroke-width="0.8"/>
+    <line x1="280" y1="200" x2="340" y2="260" stroke="white" stroke-width="0.8"/>
+    <line x1="280" y1="200" x2="160" y2="200" stroke="white" stroke-width="0.8"/>
+    <line x1="160" y1="200" x2="120" y2="320" stroke="white" stroke-width="0.8"/>
+    <line x1="160" y1="200" x2="100" y2="100" stroke="white" stroke-width="0.8"/>
+  </svg>
+
+  <svg class="cover-network-left" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="150" cy="40"  r="5" fill="#c0392b"/>
+    <circle cx="260" cy="120" r="4" fill="#27ae60"/>
+    <circle cx="220" cy="240" r="5" fill="#2980b9"/>
+    <circle cx="80"  cy="250" r="4" fill="#f1c40f"/>
+    <circle cx="40"  cy="140" r="5" fill="#e67e22"/>
+    <line x1="150" y1="40"  x2="260" y2="120" stroke="white" stroke-width="1"/>
+    <line x1="260" y1="120" x2="220" y2="240" stroke="white" stroke-width="1"/>
+    <line x1="220" y1="240" x2="80"  y2="250" stroke="white" stroke-width="1"/>
+    <line x1="80"  y1="250" x2="40"  y2="140" stroke="white" stroke-width="1"/>
+    <line x1="40"  y1="140" x2="150" y2="40"  stroke="white" stroke-width="1"/>
+    <line x1="150" y1="40"  x2="220" y2="240" stroke="white" stroke-width="0.6"/>
+    <line x1="260" y1="120" x2="80"  y2="250" stroke="white" stroke-width="0.6"/>
+  </svg>
+
+  <!-- Main content -->
+  <div class="cover-inner">
+    <!-- Pravah logo — hero element -->
+    <img class="cover-pravah-logo"
+         src="https://pravah.thapar.edu/images/Pravah%20logo%20unit.png"
+         alt="Pravah"/>
+
+    <div class="cover-divider"><div class="cover-diamond"></div></div>
+
+    <p class="cover-tagline">Conversations in Liberal Arts &amp; Sciences Leadership</p>
+    <h1 class="cover-event-title">Celebrating <span>5 Years</span> of TSLAS</h1>
+
+    <div class="cover-pills">
+      <span class="pill">AI &amp; Education</span>
+      <span class="pill">New Humanities</span>
+      <span class="pill">Global Citizenship</span>
+      <span class="pill">Student Well-being</span>
+      <span class="pill">Interdisciplinarity</span>
+    </div>
+
+    <!-- TSLAS logo -->
+    <img class="cover-tslas-logo" src="tslas_logo.png" alt="TSLAS"/>
+
+    <p class="cover-date">27 &amp; 28 February 2026 &nbsp;·&nbsp; Thapar Institute, Patiala</p>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="arrow"></div>
+  </div>
+</section>
+
+<!-- ═══════════════ MOBILE NAV ═══════════════ -->
+<div class="mobile-nav">
+  <img src="https://pravah.thapar.edu/images/Pravah%20logo%20unit.png" alt="Pravah" style="height:32px; width:auto;"/>
+  <button id="menu-toggle">Menu</button>
+</div>
+
+<div class="mobile-drawer" id="mobile-drawer">
+  <div class="drawer-inner">
+    <button class="close-btn" id="close-drawer">✕</button>
+    <nav id="mobile-nav-links"></nav>
+  </div>
+</div>
+
+<!-- ═══════════════ MAIN ═══════════════ -->
+<div class="main-layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div style="margin-bottom:0.6rem;">
+      <img src="https://pravah.thapar.edu/images/Pravah%20logo%20unit.png" alt="Pravah" style="height:36px; width:auto;"/>
+    </div>
+    <div style="margin-bottom:0.8rem;">
+      <img src="tslas_logo.png" alt="TSLAS" style="height:28px; width:auto;"/>
+    </div>
+    <div class="sidebar-sub"><a href="https://pravah.thapar.edu" target="_blank" style="color:var(--crimson); text-decoration:none; font-size:0.72rem; letter-spacing:0.12em;">pravah.thapar.edu ↗</a></div>
+    <nav id="sidebar-nav"></nav>
+  </aside>
+
+  <!-- Content -->
+  <main class="content">
+
+    <!-- Preface -->
+    <div class="section" id="sec-preface" data-label="Preface" data-title="Preface">
+      <div class="chapter-eyebrow">Preface</div>
+      <h2>A Flow of Ideas</h2>
+      <h3>Prof. Vinay Kumar, Dean, TSLAS</h3>
+      <div class="prose">
+        <p>PRAVAH — the Sanskrit word for <em>flow</em> — has, since its inception, embodied the Thapar School of Liberal Arts &amp; Sciences's conviction that the most important ideas do not stay within the boundaries of disciplines, institutions, or traditions. They move. They spill over. They find their way into conversations that were not designed to contain them, and they are better for it.</p>
+        <p>This booklet is the record of one such flow: two days in February 2026, when educators, scholars, counsellors, and students from across India came together at Thapar Institute of Engineering &amp; Technology to think aloud about the future of liberal arts and sciences education. The five themes that structured those conversations — artificial intelligence in the classroom, interdisciplinarity and the new humanities, global citizenship and inclusion, student well-being, and the question of what a liberal arts and sciences education is actually worth — were chosen not because they are fashionable but because they are urgent.</p>
+        <p>TSLAS was founded under the visionary leadership of Prof. Padmakumar Nair, now Vice Chancellor of Thapar Institute, whose guiding conviction — that genuine education begins with unconditional, open-minded questioning — has shaped the School's identity as a community of independent thinkers unafraid to challenge orthodoxy. That same spirit of courageous inquiry is at the heart of Pravah.</p>
+        <p>In 2026, PRAVAH marked a milestone: the fifth anniversary of TSLAS. The school has, in those five years, built something that was not a foregone conclusion — a genuinely interdisciplinary academic community within one of India's leading technical institutions.</p>
+        <p>This booklet was prepared from recordings, notes, and the memories of the editors. The chapters that follow have been shaped from conversation into essay form, but they retain the spirit of genuine exchange: argument, counter-argument, provocation, and the kind of insight that emerges only when serious people are brought into the same room with serious questions.</p>
+      </div>
+    </div>
+
+    <!-- Acknowledgements -->
+    <div class="section" id="sec-ack" data-label="Acknowledgements" data-title="Acknowledgements">
+      <div class="chapter-eyebrow">Acknowledgements</div>
+      <h2>Institutional Gratitude</h2>
+      <h3>Those whose leadership and generosity made PRAVAH 2026 possible</h3>
+
+      <div class="prose">
+        <p><strong>Dr. Rajeev Ranjan Vederah</strong>, Chancellor, Thapar Institute of Engineering &amp; Technology — for his unwavering belief in the liberal arts and sciences as an integral part of Thapar Institute's identity. His leadership created the conditions in which TSLAS could take root and flourish.</p>
+        <p><strong>Prof. Padmakumar Nair</strong>, Vice Chancellor — whose founding vision for TSLAS, that genuine inquiry begins with open-minded questioning, has shaped every dimension of the school's intellectual life. PRAVAH exists because he believed it should.</p>
+        <p><strong>Prof. Ajay Batish</strong>, Pro Vice Chancellor — for his consistent support of TSLAS's academic programmes and for making the institutional resources available that made this conference possible.</p>
+      </div>
+
+      <h3 style="margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid var(--rule);">Keynote Speakers</h3>
+      <div class="keynote-cards">
+        <div class="keynote-card">
+          <div class="kname">Professor Shruti Kapila</div>
+          <div class="krole">Professor of History and Politics, University of Cambridge</div>
+          <p>Her keynote set the tone for two days of serious, searching conversation, bringing extraordinary scholarship and intellectual generosity to PRAVAH 2026.</p>
+        </div>
+        <div class="keynote-card">
+          <div class="kname">Ms. Rema Menon Vellat</div>
+          <div class="krole">Director, Counselling Point</div>
+          <p>Her contribution as keynote speaker — and her broader engagement with the conference themes — enriched every conversation that followed.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- About -->
+    <div class="section section-intro" id="sec-about" data-label="About PRAVAH" data-title="About PRAVAH">
+      <div class="chapter-eyebrow">About</div>
+      <h2>What is PRAVAH?</h2>
+      <h3>The annual flagship conference of the Thapar School of Liberal Arts &amp; Sciences</h3>
+      <div class="prose">
+        <p>PRAVAH is the annual flagship conference of TSLAS at Thapar Institute of Engineering &amp; Technology, Patiala. The name — the Sanskrit word for <em>flow</em> — captures the essential spirit of the gathering: a continuous, living exchange of ideas that moves between disciplines, institutions, and perspectives.</p>
+        <p>In 2026, PRAVAH marked a milestone: the fifth anniversary of TSLAS. Over five years, the school has built an interdisciplinary academic environment combining humanities, social sciences, natural sciences, and applied learning — enabling students to tailor their intellectual formation and link ideas with problem-solving across traditional boundaries.</p>
+        <p>The school's guiding conviction is that the most important challenges of our time require precisely the kind of thinker that a liberal arts and sciences education cultivates: someone who can navigate across disciplinary boundaries, bring ethical reasoning to technical problems, and think creatively under conditions of genuine uncertainty.</p>
+      </div>
+    </div>
+
+    <!-- Introduction -->
+    <div class="section" id="sec-intro" data-label="Introduction" data-title="Introduction">
+      <div class="chapter-eyebrow">Introduction</div>
+      <h2>Five Conversations, One Current</h2>
+      <h3>An Introduction to the PRAVAH 2026 Dialogues</h3>
+      <div class="prose">
+        <p>Every conference has a theory of itself, even when that theory is never stated. The theory behind PRAVAH is that the most important questions in liberal arts and sciences education cannot be answered by any single institution, any single discipline, or any single generation of educators working in isolation.</p>
+        <p>The five conversations documented in this booklet did not begin on the morning of 27 February 2026. They began years earlier, in faculty meetings and curriculum committees, in the quiet anxiety of deans trying to justify their schools to sceptical administrators, in the offices of counsellors watching students choose between what they love and what they think they can afford to study.</p>
+        <p>What strikes a reader of these five chapters together is how consistently the same deeper question surfaces, regardless of the stated theme: what is education fundamentally for, and whether the institutions we have built are genuinely designed to accomplish it.</p>
+        <p>Read together, these five conversations are not a programme or a manifesto. They are a record of serious people taking seriously the possibility that the way we educate might need to be fundamentally reimagined — and that reimagining it is work worth doing.</p>
+      </div>
+    </div>
+
+    <!-- Themes -->
+    <div class="section" id="sec-themes" data-label="Conference Themes" data-title="Conference Themes">
+      <div class="chapter-eyebrow">Themes</div>
+      <h2>Five Questions Worth Taking Seriously</h2>
+      <h3>The thematic framework of PRAVAH 2026</h3>
+      <div class="themes-grid">
+        <div class="theme-card">
+          <span class="theme-num">1</span>
+          <h4>Reimagining Education in the AI Era</h4>
+          <p>How should institutions respond to the arrival of AI — and what does it mean to teach and learn in an age of intelligent machines?</p>
+        </div>
+        <div class="theme-card">
+          <span class="theme-num">2</span>
+          <h4>Liberal Arts and the Future of Work</h4>
+          <p>What capacities does a liberal arts and sciences education actually build, and why do they matter in a labour market transformed by automation?</p>
+        </div>
+        <div class="theme-card">
+          <span class="theme-num">3</span>
+          <h4>Global Citizenship &amp; Inclusive Education</h4>
+          <p>Whose knowledge underwrites the idea of global citizenship, and what structural commitments does genuine inclusion require?</p>
+        </div>
+        <div class="theme-card">
+          <span class="theme-num">4</span>
+          <h4>Student Well-being &amp; Meaningful Learning</h4>
+          <p>How do nutrition, belonging, transition, and digital culture shape the student's capacity to learn — and what is the institution's responsibility?</p>
+        </div>
+        <div class="theme-card">
+          <span class="theme-num">5</span>
+          <h4>Interdisciplinarity &amp; the New Humanities</h4>
+          <p>What does genuine interdisciplinarity demand, and how do we build curricula that take local knowledge seriously as knowledge?</p>
+        </div>
+      </div>
+      <blockquote>"These are not questions with settled answers. They are questions worth taking seriously."</blockquote>
+    </div>
+
+    <!-- Chapter 1 -->
+    <div class="section" id="sec-ch1" data-label="Ch 1 · The Co-Pilot" data-title="Chapter 1: The Co-Pilot and the Classroom" data-chapter="1">
+      <div class="chapter-eyebrow">Chapter One</div>
+      <h2>The Co-Pilot and the Classroom</h2>
+      <h3>Rethinking AI in Education</h3>
+      <div class="prose">
+        <p>There is a version of the artificial intelligence conversation in higher education that is, by now, familiar to the point of exhaustion. It moves through a predictable sequence: concern about plagiarism, followed by revised assessment policies, followed by the discovery that students are using AI tools regardless of policy, followed by a kind of institutional paralysis that mistakes caution for wisdom. The educators who gathered for the first PRAVAH 2026 dialogue were largely uninterested in that version of the conversation.</p>
+        <p>The questions that drove this session were not new, but AI makes them newly urgent. What is education actually for? What does a teacher do that cannot be replicated? What does a student need to learn that a machine cannot learn for them? These are questions that liberal arts and sciences educators have always had to answer — the instrumental justification for any subject that is not immediately vocational has always required a theory of human formation, not just human training. AI has simply raised the stakes of getting that theory right.</p>
+        <p>One recurring theme was the distinction between information and understanding. A language model can produce, on demand, a plausible essay on almost any topic. What it cannot do — or cannot yet do — is hold the genuine confusion of not knowing, sit with a difficult question without resolving it prematurely, or experience the specific kind of growth that comes from struggling with an idea over time.</p>
+        <p>The pedagogical implications are significant. If AI can produce competent output across most domains, then assessment practices that reward competent output need fundamental rethinking. What would it mean to assess genuine understanding rather than its simulation? Suggestions that emerged included oral examinations that probe reasoning in real time, project-based assessments that unfold over weeks and require documented reflection, and portfolio approaches that ask students to show not just what they produced but how their thinking changed.</p>
+        <p>A counsellor in the room raised a question that sharpened the entire conversation: what are we actually asking students to do when we give them an assignment? If the answer is <em>produce a polished written product</em>, then AI has already made that assignment obsolete. If the answer is <em>develop the capacity to organise and communicate their own thinking</em>, then the assignment still has a purpose — but only if it is designed in a way that requires genuine cognitive effort that cannot be outsourced.</p>
+        <p>The session ended, as the best conversations do, without a resolution — but with a clearer sense of what the real questions are. The arrival of AI in education is not primarily a technological problem. It is a clarifying pressure that makes visible what was always true: that the value of education cannot reside in the production of outputs that can be mechanically generated.</p>
+      </div>
+    </div>
+
+    <!-- Chapter 2 -->
+    <div class="section" id="sec-ch2" data-label="Ch 2 · New Humanities" data-title="Chapter 2: The New Humanities" data-chapter="2">
+      <div class="chapter-eyebrow">Chapter Two</div>
+      <h2>The New Humanities</h2>
+      <h3>Roots, Leaves, and the Problem of Knowledge</h3>
+      <div class="prose">
+        <p>Interdisciplinarity has become one of the most invoked and least examined ideas in contemporary higher education. Every new curriculum framework claims it; few curricula actually deliver it. The PRAVAH 2026 dialogue on the new humanities began by trying to take the word seriously — to ask not whether interdisciplinarity is desirable, but what it actually requires, and why it is so much harder to achieve than it sounds.</p>
+        <p>The image that anchored much of the conversation was a tree. The roots are the disciplines — deep, specific, hard-won knowledge in a particular field. The leaves are the broad, integrative capacities that a liberal arts and sciences education is supposed to cultivate. Genuine interdisciplinarity is not the dilution of disciplinary knowledge; it is its extension into territory that no single discipline can map alone.</p>
+        <p>This has significant implications for curriculum design. The rush to produce 'interdisciplinary' programmes has, in many institutions, produced something closer to multidisciplinary programmes. The participants who had designed programmes that actually worked described a common feature: a requirement for genuine depth in at least one field before breadth was introduced.</p>
+        <p>Several participants argued that the most important frontier for the new humanities is epistemological: the question of whose knowledge counts. A genuinely new humanities would take seriously the intellectual traditions of non-Western cultures, not as objects of study but as sources of theory — frameworks for understanding the world that are as rigorous and as generative as the traditions that currently dominate the curriculum.</p>
+        <p>What emerges is a picture of interdisciplinarity that is more exacting and more honest than its cheerful rhetorical versions. It demands genuine depth in at least one field before genuine breadth becomes possible. A first-year student who changed her stream from science to history against the grain of expectation stands as a reminder: that small act of pedagogical trust may be as important to the future of the new humanities as any structural reform.</p>
+      </div>
+    </div>
+
+    <!-- Chapter 3 -->
+    <div class="section" id="sec-ch3" data-label="Ch 3 · Global Citizenship" data-title="Chapter 3: Global Citizenship" data-chapter="3">
+      <div class="chapter-eyebrow">Chapter Three</div>
+      <h2>The Unfinished Project of Global Citizenship</h2>
+      <h3>Inclusion, Knowledge, and Institutional Courage</h3>
+      <div class="prose">
+        <p>Global citizenship has become one of the more appealing concepts in contemporary higher education — invoked at convocations, embedded in mission statements, and built into curriculum frameworks with increasing regularity. Yet the frequency with which the term appears may be inversely proportional to the rigour with which it is examined.</p>
+        <p>For decades, the flow of knowledge has moved predominantly from the Global North to the Global South. To genuinely realise the idea of <em>Vasudhaiva Kutumbakam</em> — the world as one family — requires dismantling this asymmetry and building frameworks of mutual knowledge production. The deeper challenge is epistemic inclusion: the question of whose knowledge counts, who is permitted to theorize, and whose ways of understanding the world are treated as legitimate intellectual frameworks.</p>
+        <p>Alongside this epistemic challenge sits a more immediately pragmatic one: the growing instrumentalisation of education. As employability has become the dominant metric of educational value, the space for philosophical engagement with knowledge, art, and the human condition has narrowed considerably.</p>
+        <p>Institutions that have brought students from excluded backgrounds into higher education did not do so by lowering standards. They did so by taking seriously the structural barriers that had kept them out, and by building the specific kinds of support — financial, academic, social, psychological — that made participation genuinely possible.</p>
+        <p>What the conversation kept returning to was a distinction between inclusion as a policy position and inclusion as an institutional practice. Global citizenship, on this account, is not a curriculum objective. It is an institutional disposition.</p>
+      </div>
+    </div>
+
+    <!-- Chapter 4 -->
+    <div class="section" id="sec-ch4" data-label="Ch 4 · The Whole Student" data-title="Chapter 4: The Whole Student" data-chapter="4">
+      <div class="chapter-eyebrow">Chapter Four</div>
+      <h2>The Whole Student</h2>
+      <h3>Well-Being, Transition, and the Limits of the Classroom</h3>
+      <div class="prose">
+        <p>The conversation about student well-being at PRAVAH 2026 began with a deceptively simple claim: students cannot learn well if they are not well. This is not a therapeutic observation. It is a pedagogical one, and it has implications for curriculum design, institutional architecture, and the professional formation of faculty that most institutions have not yet seriously reckoned with.</p>
+        <p>The evidence base is substantial and growing. A student who arrives at an 8 am lecture having skipped breakfast, slept five hours, and spent the previous evening anxious about examination performance is not a student who is in a position to learn, regardless of the quality of the teaching they receive.</p>
+        <p>The discussion moved quickly to the specific pressures of the transition into higher education. For students from smaller towns or first-generation university backgrounds, this transition carries additional weight: the social and cultural norms of university life may be genuinely unfamiliar, and the informal knowledge that helps students navigate institutional culture is often distributed very unequally.</p>
+        <p>Several practitioners described first-year transition programmes that had made measurable differences — not elaborate interventions, but small, consistent practices: regular check-ins with advisors who actually knew the students, peer mentoring systems, and explicit conversations in orientation about what university learning actually requires.</p>
+        <p>The examination system came in for sustained criticism. The current JEE-dominated model was described as an agricultural metaphor gone wrong: it ranks seeds by how quickly they reach a standard height, discards those that grow slowly, and calls the result academic achievement. The pressure this generates is not merely stressful; it is, in documented and tragic cases, lethal.</p>
+        <p>The institutions that are beginning to understand what it means to take the whole student seriously are not being soft. They are being accurate about what education actually requires. The tortoise, as one participant reminded the room with a smile, is the main character.</p>
+      </div>
+    </div>
+
+    <!-- Chapter 5 -->
+    <div class="section" id="sec-ch5" data-label="Ch 5 · ROI Question" data-title="Chapter 5: The Question That Will Not Go Away" data-chapter="5">
+      <div class="chapter-eyebrow">Chapter Five</div>
+      <h2>The Question That Will Not Go Away</h2>
+      <h3>Liberal Arts and Sciences, ROI, and the Future of Indian Education</h3>
+      <div class="prose">
+        <p>There is one question that haunts every liberal arts and sciences educator in India: <em>where will this degree place me?</em> Any honest reckoning with the future of liberal arts and sciences must begin here, with this question and with the complex web of history, culture, and financial anxiety from which it springs.</p>
+        <p>To dismiss the ROI question as philistine or shortsighted would be both intellectually dishonest and socially tone-deaf. For many Indian families, the decision to send a child to university represents a significant financial sacrifice. The anxiety that surrounds a liberal arts and sciences degree is, in this context, rational rather than philistine.</p>
+        <p>Several participants distinguished between two different kinds of ROI arguments. The first is a skills argument: liberal arts and sciences graduates develop communication, critical thinking, and adaptability that are increasingly valued by employers. The second is a network argument: the institutions and programmes that attract the most interesting students tend to produce graduates who are, regardless of what they studied, in a better position to find interesting work.</p>
+        <p>A historian trained to read the present through the long lens of the past brings to any organisation a quality of judgment that purely technical training rarely cultivates. A student who has learned to hold multiple frameworks simultaneously is — and this is what sophisticated employers are increasingly discovering — precisely the kind of person they most need.</p>
+        <p>The institutional response to the ROI question cannot simply be reassurance. Institutions that have navigated this well resist the temptation to promise specific placement outcomes; instead, they work to help students understand their own intellectual formation — to say, with confidence, not merely what they studied but what kind of thinker they have become.</p>
+        <blockquote>What a liberal arts and sciences education offers is not a guaranteed destination but a genuine preparation for the unpredictability of the journey. The return, in other words, is not on the degree. It is on the education.</blockquote>
+      </div>
+    </div>
+
+    <!-- Contributors -->
+    <div class="section" id="sec-contributors" data-label="Contributors" data-title="Contributors">
+      <div class="chapter-eyebrow">Contributors</div>
+      <h2>Voices of PRAVAH 2026</h2>
+      <h3>Speakers, discussants, and participants across the five dialogue sessions</h3>
+      <div class="contributors-grid">
+        <div class="contributor-item"><span class="name">Mr. Aakash Kannan</span><span class="org">Student, Delhi University</span></div>
+        <div class="contributor-item"><span class="name">Ms. Aastha Trikha</span><span class="org">Student, Delhi University</span></div>
+        <div class="contributor-item"><span class="name">Prof. Ambalicka Sood Jacob</span><span class="org">Dean, Faculty of Arts &amp; Culture, Punjabi University, Patiala</span></div>
+        <div class="contributor-item"><span class="name">Mr. Anil Kumar Jha</span><span class="org">Senior Academic Coordinator, The Heritage School, Kolkata</span></div>
+        <div class="contributor-item"><span class="name">Ms. Archana Mehta</span><span class="org">Head – University &amp; College Counselling, Garodia International Centre for Learning, Mumbai</span></div>
+        <div class="contributor-item"><span class="name">Mr. Arjun Seth</span><span class="org">Founder &amp; Director, Edbrand</span></div>
+        <div class="contributor-item"><span class="name">Prof. Bapi Raju</span><span class="org">Professor, IIIT Hyderabad</span></div>
+        <div class="contributor-item"><span class="name">Prof. Christopher Jeffery</span><span class="org">Pro Vice Chancellor, BUV</span></div>
+        <div class="contributor-item"><span class="name">Dr. Gayatri Doctor</span><span class="org">Program Chair and Senior Associate Professor, CEPT University</span></div>
+        <div class="contributor-item"><span class="name">Ms. Gauri Dwivedi</span><span class="org">Student, Delhi University</span></div>
+        <div class="contributor-item"><span class="name">Ms. Heena Virani</span><span class="org">Manager – Career Counselling and University Guidance, Global Schools Group</span></div>
+        <div class="contributor-item"><span class="name">Ms. Kalika Moniz</span><span class="org">College and Career Counsellor, Avasara Academy</span></div>
+        <div class="contributor-item"><span class="name">Dr. Kumarashvari Subramaniam</span><span class="org">Discipline Lead – Business, BUV</span></div>
+        <div class="contributor-item"><span class="name">Prof. Narayanan Srinivasan</span><span class="org">Professor, Cognitive Science, IIT Kanpur</span></div>
+        <div class="contributor-item"><span class="name">Ms. Neha Arora</span><span class="org">Career Counsellor, Kodaikanal International School</span></div>
+        <div class="contributor-item"><span class="name">Ms. Nilanjana Mukherjee</span><span class="org">Career Counsellor, The Shri Ram School, Moulsari Campus</span></div>
+        <div class="contributor-item"><span class="name">Dr. Paru Bal Sidhu</span><span class="org">Professor &amp; Chairperson, Panjab University, Chandigarh</span></div>
+        <div class="contributor-item"><span class="name">Dr. Pratichi Majumdar</span><span class="org">Assistant Professor, University of Delhi</span></div>
+        <div class="contributor-item"><span class="name">Ms. Preeti Ajit Kumar</span><span class="org">Academic Counsellor, APL Global School</span></div>
+        <div class="contributor-item"><span class="name">Dr. Prerana Srimaal</span><span class="org">Asst Prof &amp; Head of Liberal Arts Program, CHRIST University</span></div>
+        <div class="contributor-item"><span class="name">Ms. Prishma Jain</span><span class="org">Assistant Manager – Undergraduate Services, The Red Pen</span></div>
+        <div class="contributor-item"><span class="name">Ms. Priya Karki</span><span class="org">Counsellor, Campion School &amp; Academy</span></div>
+        <div class="contributor-item"><span class="name">Ms. Priya Promod</span><span class="org">Principal, The Charter School</span></div>
+        <div class="contributor-item"><span class="name">Prof. Rahul Dass</span><span class="org">Professor, Mahindra University</span></div>
+        <div class="contributor-item"><span class="name">Ms. Rema Menon Vellat</span><span class="org">Director, Counselling Point</span></div>
+        <div class="contributor-item"><span class="name">Prof. Rukmini Bhaya Nair</span><span class="org">Professor, Humanities &amp; Social Sciences, IIT Delhi</span></div>
+        <div class="contributor-item"><span class="name">Ms. Rushali Kapadia</span><span class="org">Career Counsellor, Fountainhead School, Surat</span></div>
+        <div class="contributor-item"><span class="name">Mr. S. Sriram</span><span class="org">Principal, The Mann School</span></div>
+        <div class="contributor-item"><span class="name">Ms. Sabba Shrestha</span><span class="org">Academic and Duke of Edinburgh Counsellor, Ullens School</span></div>
+        <div class="contributor-item"><span class="name">Dr. Sangeeta</span><span class="org">Career Guide &amp; Head of Commerce, The Mann School</span></div>
+        <div class="contributor-item"><span class="name">Ms. Sanjna Verma</span><span class="org">Student, Hindu College, Delhi University</span></div>
+        <div class="contributor-item"><span class="name">Prof. Seema Bawa</span><span class="org">Professor, University of Delhi</span></div>
+        <div class="contributor-item"><span class="name">Prof. Shaijumon C S</span><span class="org">Associate Professor of Economics, IIST, Trivandrum</span></div>
+        <div class="contributor-item"><span class="name">Ms. Shailaja Raghavendra</span><span class="org">University Guidance Counsellor, Kunskapsskolan India Schools</span></div>
+        <div class="contributor-item"><span class="name">Ms. Shikha Dhar</span><span class="org">Education Consultant, DSB International School, Mumbai</span></div>
+        <div class="contributor-item"><span class="name">Prof. Shilpa Kalyan</span><span class="org">Associate Professor and Head, Liberal Arts, MAHE-Bengaluru</span></div>
+        <div class="contributor-item"><span class="name">Ms. Shraddha Jain</span><span class="org">Career Counsellor, Sushila Birla Girls' School</span></div>
+        <div class="contributor-item"><span class="name">Prof. Shweta Sinha Deshpande</span><span class="org">Director, Symbiosis School for Liberal Arts</span></div>
+        <div class="contributor-item"><span class="name">Ms. Sujitha Nair</span><span class="org">Senior Academic Counsellor, APL Global School</span></div>
+        <div class="contributor-item"><span class="name">Ms. Suman Yadav</span><span class="org">Head of College Counselling, JBCN International School, Mumbai</span></div>
+        <div class="contributor-item"><span class="name">Ms. Tarveen Kaur</span><span class="org">Head Outreach, BCM School</span></div>
+        <div class="contributor-item"><span class="name">Ms. Theresa Joseph</span><span class="org">Career Counsellor, Nahar International School</span></div>
+        <div class="contributor-item"><span class="name">Ms. Vedika Mishra</span><span class="org">Student, Delhi University</span></div>
+        <div class="contributor-item"><span class="name">Ms. Vidisha Panja</span><span class="org">Dean Academics, Sushila Birla Girls' School</span></div>
+        <div class="contributor-item"><span class="name">Dr. Vinita Verma</span><span class="org">Educationist and Counseling Psychologist, The Regency Public School</span></div>
+      </div>
+    </div>
+
+    <!-- Note of Thanks -->
+    <div class="section" id="sec-thanks" data-label="Note of Thanks" data-title="A Note of Thanks">
+      <div class="chapter-eyebrow">Thanks</div>
+      <h2>A Note of Thanks</h2>
+      <div class="prose">
+        <p>PRAVAH 2026 was made possible by the generosity of everyone who gave their time, their thinking, and their presence to these conversations. To every participant who travelled to Patiala, prepared carefully for their sessions, and engaged with honesty and intellectual seriousness — this booklet exists because of you.</p>
+        <p>To the students who participated — not as passive observers but as genuine contributors to the conversation — we are particularly grateful. You reminded us, more than once, why this work matters.</p>
+        <p>To the faculty and staff of TSLAS who made the conference run: your effort was visible in every detail, and the warmth with which participants were received was a reflection of the community you have built.</p>
+        <p>To the volunteers who kept the days moving — managing rooms, solving problems, and doing the hundred small things that conferences require without being asked: thank you.</p>
+        <p>To the broader community of Thapar Institute — colleagues in other schools and departments, administrative staff, and the institution's leadership — for the support and the space to do this work: thank you.</p>
+      </div>
+    </div>
+
+    <!-- Organising Acknowledgements -->
+    <div class="section" id="sec-org" data-label="Acknowledgements" data-title="Organising Acknowledgements">
+      <div class="chapter-eyebrow">Acknowledgements</div>
+      <h2>Organising &amp; Coordination</h2>
+      <h3>We are deeply grateful to the following colleagues for their invaluable help in organising and coordinating these sessions</h3>
+      <ul class="ack-list">
+        <li>Prof. Hans van Ees</li>
+        <li>Prof. Lakhwinder Singh</li>
+        <li>Dr. Rahul Upadhyay</li>
+        <li>Dr. Tanya Bhardwaj</li>
+        <li>Mrs. Radhika Kalia</li>
+        <li>Dr. Brandon Evans</li>
+        <li>Dr. Andrea Raimondi</li>
+        <li>Dr. Anuj Shukla</li>
+        <li>Dr. Amanpreet Kaur</li>
+      </ul>
+    </div>
+
+  </main>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div style="display:flex; align-items:center; justify-content:center; gap:2.5rem; margin-bottom:1.5rem; flex-wrap:wrap;">
+    <img src="https://pravah.thapar.edu/images/Pravah%20logo%20unit.png" alt="Pravah Logo" style="height:50px; width:auto; filter:brightness(0) invert(1) opacity(0.85);"/>
+    <img src="tslas_logo.png" alt="TSLAS Logo" style="height:44px; width:auto; filter:brightness(0) invert(1) opacity(0.85);"/>
+  </div>
+  <div class="footer-title">Pravah 2026</div>
+  <div>Thapar School of Liberal Arts &amp; Sciences</div>
+  <div>Thapar Institute of Engineering &amp; Technology, Patiala 147004, Punjab, India</div>
+  <div style="margin-top:0.5rem;">
+    <a href="https://pravah.thapar.edu" target="_blank" style="font-size:1.05rem; letter-spacing:0.05em;">pravah.thapar.edu</a>
+    &nbsp;·&nbsp; pravah.tslas@thapar.edu
+  </div>
+  <div class="footer-copy">© 2026 Thapar School of Liberal Arts &amp; Sciences · All rights reserved<br/>Logo design: Dr. Rahul Upadhyay &amp; Mr. Harvinder Singh</div>
+</footer>
+
+<script>
+  // ── Build nav from sections ──────────────────────────────────
+  const sections = document.querySelectorAll('.section');
+  const sidebarNav = document.getElementById('sidebar-nav');
+  const mobileNavLinks = document.getElementById('mobile-nav-links');
+
+  sections.forEach(sec => {
+    const label = sec.dataset.label || sec.dataset.title || '';
+    const id = sec.id;
+    if (!label || !id) return;
+
+    const a1 = document.createElement('a');
+    a1.href = '#' + id;
+    a1.textContent = label;
+    if (sec.dataset.chapter) a1.classList.add('nav-chapter');
+    sidebarNav.appendChild(a1);
+
+    const a2 = document.createElement('a');
+    a2.href = '#' + id;
+    a2.textContent = label;
+    a2.addEventListener('click', () => drawer.classList.remove('open'));
+    mobileNavLinks.appendChild(a2);
+  });
+
+  // ── Intersection Observer for scroll reveal + active nav ─────
+  const navLinks = document.querySelectorAll('#sidebar-nav a');
+  let activeId = null;
+
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+
+        const id = entry.target.id;
+        if (id !== activeId) {
+          activeId = id;
+          navLinks.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+          });
+        }
+      }
+    });
+  }, { threshold: 0.12 });
+
+  sections.forEach(sec => revealObs.observe(sec));
+
+  // ── Mobile drawer ────────────────────────────────────────────
+  const drawer = document.getElementById('mobile-drawer');
+  document.getElementById('menu-toggle').addEventListener('click', () => drawer.classList.add('open'));
+  document.getElementById('close-drawer').addEventListener('click', () => drawer.classList.remove('open'));
+  drawer.addEventListener('click', e => { if (e.target === drawer) drawer.classList.remove('open'); });
+</script>
+</body>
+</html>
